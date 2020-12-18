@@ -47,6 +47,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Blog');
     }
 
-    
-
+    // Relation one to one
+    public function about()
+    {
+        return $this->hasOne(About::class);
+    }
 }
