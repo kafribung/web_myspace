@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Livewire\Backend\Dashboard;
+use App\Http\Livewire\Backend\{Admin, Dashboard};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::middleware('admin')->group(function(){
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+    Route::get('admin', Admin::class)->name('admin');
 });
 
 require __DIR__.'/auth.php';

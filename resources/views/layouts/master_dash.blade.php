@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    <title> @yield('title')</title>
-    <!-- CSS Livewire -->
+    <!-- Master -->
+    <title>{{ $title ?? config('app.name') }}</title>
+    @livewireStyles
     @include('includes.css_dash')
 </head>
 
@@ -29,6 +30,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    @livewireScripts
 </body>
     @include('includes.script_dash')
     @stack('after_script')

@@ -28,9 +28,11 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item  {{ Request::is('admin') ? 'active' : '' }}">
+        
         <a class="nav-link" href="/admin">
             <i class="fas fa-fw fa-users"></i>
             <span>Admin</span></a>
+        </a>
     </li>
 
     <!-- Divider -->
