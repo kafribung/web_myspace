@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>@yield('title')</title>
+    <title> @yield('title')</title>
+    <!-- CSS Livewire -->
     @include('includes.css_dash')
 </head>
 
@@ -15,8 +16,7 @@
             <!-- Main Content -->
             <div id="content">
                 @include('layouts._navbar_dash')
-                {{-- @yield('content') --}}
-                sapi
+                @yield('content')
             </div>
             <!-- End of Main Content -->
             @include('layouts._footer_dash')
@@ -29,7 +29,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
 </body>
     @include('includes.script_dash')
     @stack('after_script')
