@@ -31,7 +31,13 @@
         <i class="fas fa-angle-up"></i>
     </a>
     @livewireScripts
+    {{-- <script type="text/javascript">
+        window.livewire.on('userStore', () => {
+            $('#exampleModal').modal('hide');
+        });
+    </script> --}}
 </body>
     @include('includes.script_dash')
     @stack('after_script')
+
 </html>

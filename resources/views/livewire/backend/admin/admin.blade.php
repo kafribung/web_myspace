@@ -33,7 +33,7 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    <a href="" data-remote="/admin/{{ $user->email }}/edit" data-title="Data {{$user->name}}" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></a>
+                                    <button data-toggle="modal" data-target="#updateModal"  wire:click="edit({{ $user->id }})" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
                                 </td>
                             </tr>
                             @endforeach
@@ -43,23 +43,9 @@
             </div>
         </div>
     </div>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <!-- Modal -->
+    @include('livewire.backend.admin.edit')
     <!-- End Logout Modal-->
 </div>
 </div>

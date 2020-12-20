@@ -21,7 +21,10 @@ Route::get('/', function () {
 
 Route::middleware('admin')->group(function(){
     Route::get('dashboard', Dashboard::class)->name('dashboard');
-    Route::get('admin', Admin::class)->name('admin');
+    Route::group(['prefix' => 'admin'], function(){
+        Route::get('', Admin::class)->name('admin');
+        // Route::patch('/{user:email}', Admin::class)->name('admin');
+    });
 });
 
 require __DIR__.'/auth.php';
