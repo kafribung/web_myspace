@@ -24,7 +24,7 @@ class Dashboard extends Component
     public function render()
     {
         return view('livewire.backend.dashboard.dashboard')
-            ->extends('layouts.master_dash', ['title' => 'Dashboard'])
+            ->extends('layouts.master_dash', ['title' => 'Dashboard | Kafri Bung Space'])
             ->section('content');
     }
 }

@@ -31,7 +31,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
 </body>
     @include('includes.script_dash')
     @stack('after_script')

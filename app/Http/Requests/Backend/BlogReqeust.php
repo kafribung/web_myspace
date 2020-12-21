@@ -24,7 +24,7 @@ class BlogReqeust extends FormRequest
     public function rules()
     {
         return [
-            'title'       => 'required|string|min:3|max:30,unique:blogs,title,' . optional($this->blog)->id,
+            'title'       => 'required|string|min:3|max:30|unique:blogs,title,' . optional($this->blog)->id,
             'description' => 'required|string',
         ];
     }

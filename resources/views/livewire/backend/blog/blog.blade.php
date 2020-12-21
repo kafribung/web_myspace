@@ -21,8 +21,8 @@
                     <hr>
                     <div class="d-flex justify-content-between">
                         <div>
-                            <a href="/blogs/{{ $blog->slug }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                            <a  onclick="deleteData({{ $blog->id }})" id="delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('blog.edit', $blog) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                            <button  wire:click="delete({{ $blog->id }})" id="delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                         </div>
                         <div>
                             <small>{{ $blog->user->name }}</small>

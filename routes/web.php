@@ -27,6 +27,8 @@ Route::middleware('admin')->group(function(){
     // Controller
     Route::get('blogs/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('blogs', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('blogs/{blog:slug}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::patch('blogs/{blog:slug}', [BlogController::class, 'update'])->name('blog.update');
 });
 
 // File manager

@@ -6,11 +6,17 @@ use Livewire\Component;
 
 class Blog extends Component
 {
+    public function delete($id)
+    {
+        $data = \App\Models\Blog::findOrFail($id);
+        $data->delete();
+        session()->flash('msg', 'Blog Delete Succesfully');
+    }
     public function render()
     {
         $blogs = \App\Models\Blog::with('user')->latest()->get();
         return view('livewire.backend.blog.blog', compact('blogs')) 
-        ->extends('layouts.master_dash', ['title' => 'Dashboard Blogs'])
+        ->extends('layouts.master_dash', ['title' => 'BLogs | Kafri Bung Space'])
         ->section('content');
     }
 }

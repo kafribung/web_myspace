@@ -45,7 +45,7 @@ class Admin extends Component
     {
         $users = User::where('role',1)->get();
         return view('livewire.backend.admin.admin', ['users' => $users])
-            ->extends('layouts.master_dash', ['title' => 'Dashboard Admin'])
+            ->extends('layouts.master_dash', ['title' => 'Admin | Kafri Bung Space'])
             ->section('content');
     }
 }
