@@ -12,28 +12,28 @@
                     <form wire:submit.prevent="update">
                         <div class="form-group">
                             <label for="name">nama</label>
-                            <input type="text" wire:model.debonce.500ms="name" id="name" class="form-control" autocomplete="off">
+                            <input type="text" wire:model.debounce.500ms="name" id="name" class="form-control" autocomplete="off">
                             @error('name')
                                 <small class="text-danger font-italic">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="email">email</label>
-                            <input type="email" wire:model.debonce.500ms="email" id="email" class="form-control" autocomplete="off">
+                            <input type="email" wire:model.debounce.500ms="email" id="email" class="form-control" autocomplete="off">
                             @if ($errors->has('email'))
                                 <small class="text-danger font-italic">{{ $errors->first('email') }}</small>
                             @endif
                         </div>
                         <div class="form-group">
                             <label for="oldPassword">old password</label>
-                            <input type="password" wire:model.debonce.500ms="oldPassword" id="oldPassword" class="form-control" autocomplete="off">
+                            <input type="password" wire:model.debounce.500ms="oldPassword" id="oldPassword" class="form-control" autocomplete="off">
                             @error('oldPassword')
                                 <small class="text-danger font-italic">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="newPassword">new password</label>
-                            <input type="password" wire:model.debonce.500ms="newPassword" id="newPassword" class="form-control" autocomplete="off">
+                            <input type="password" wire:model.debounce.500ms="newPassword" id="newPassword" class="form-control" autocomplete="off">
                             @error('newPassword')
                                 <small class="text-danger font-italic">{{ $message }}</small>
                             @enderror
