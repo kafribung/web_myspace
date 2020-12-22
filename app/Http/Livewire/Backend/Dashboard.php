@@ -7,16 +7,9 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
-    public $blog, $admin, $msg;
-    public function like()
-    {
-        $this->msg = !$this->msg;
-        // return view('livewire.backend.admin.admin');
-    }
-
+    public $blog, $admin;
     public function mount()
     {
-        $this->msg  = false;
         $this->blog = Blog::count();
         $this->admin= User::count();
     }
