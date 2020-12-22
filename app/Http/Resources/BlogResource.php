@@ -20,6 +20,7 @@ class BlogResource extends JsonResource
             'description_2' => $this->description,
             'slug'   => \Str::slug($this->slug),
             'user'  => $this->user->name,
+            'view'  => $this->view,
             'created_at' => $this->created_at->format('d M, Y')
         ];
     }

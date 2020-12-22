@@ -23,6 +23,7 @@
     "dependencies": {
         "axios": "^0.21.1",
         "laravel-vue-pagination": "^2.3.1",
+        "laravel-vue-tailwind-pagination": "^0.1.8",
         "vue": "^2.6.12",
         "vue-axios": "^3.2.0",
         "vue-router": "^3.4.9"

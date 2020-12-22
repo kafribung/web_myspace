@@ -3,9 +3,9 @@
         <Navbar />
         <!-- Hero -->
         <main class="mt-5 mb-10 px-10 h-screen">
-            <div class="flex flex-col items-center mx-auto">
+            <div class="flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl">
                 <div class="text-2xl font-extrabold underline text-blue-400">{{ blog.title }}</div>
-                <div class="text-sm font-light  italic text-dark">[{{ blog.user }} => {{ blog.created_at }}]</div>
+                <div class="text-sm mt-3  font-bold italic text-dark">[{{ blog.user }} => {{ blog.created_at }}, views => {{ blog.view }}]</div>
                 <div class="flex justify-center mx-auto md:mx-64">
                     <div class="mt-2 leading-loose tracking-widest  font-light" v-html="blog.description_2"></div>
                 </div>
@@ -23,10 +23,16 @@ export default {
     data() {
         return {
             blog : {},
+            view : {},
         }
     },
     mounted() {
-        this.getData()
+        this.getData(),
+
+        this.getView()
+    },
+    created() {
+        this.addView()
     },
     methods: {
         getData(){
@@ -36,6 +42,25 @@ export default {
                 this.blog = response.data.data
             })
             .catch(error => console.log(error))
+        },
+        getView(){
+            this.axios
+            .get(`/api/view/${this.$route.params.slug}`)
+            .then(response => {
+                this.view = response.data.data.view
+            })
+        },
+        addView(){
+            setTimeout(() => {
+                var incView = this.view;
+                var viewOri = {
+                    view : parseInt(incView) + 1
+                };
+                this.axios
+                .post('/api/view/' + this.$route.params.slug, viewOri)
+                .catch(error => console.log(error.data))
+            }, 1000);
+            
         }
     },
     components: {

@@ -3,9 +3,9 @@
         <Navbar />
         <!-- Hero -->
         <main class="mt-5 px-10">
-            <div class="flex flex-col items-center max-w-full">
+            <div class="flex flex-col items-center">
                 <div class="text-xl  underline text-blue-400 mb-5">My Blog</div>
-                <div class="flex justify-center" v-for="blog in blogs.data" :key="blog.id">
+                <div class="flex justify-center w-11/12" v-for="blog in blogs.data" :key="blog.id">
                     <router-link :to="'/blog/show/' + blog.slug" class="bg-white  mb-10 p-5 rounded-lg shadow hover:shadow-lg transform transition-all hover:-translate-y-1 duration-200">
                         <div class="font-semibold font-sans text-xl hover:underline">{{ blog.title }}</div>
                         <div class="font-serif leading-loose my-5 font-light" v-html="blog.description"></div>
@@ -32,7 +32,7 @@ import Footer from '../../components/Footer'
 export default {
     data() {
         return {
-            blogs : [],
+            blogs : {},
         }
     },
     mounted() {

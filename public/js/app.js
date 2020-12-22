@@ -2158,7 +2158,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      blogs: []
+      blogs: {}
     };
   },
   mounted: function mounted() {
@@ -2218,11 +2218,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      blog: {}
+      blog: {},
+      view: {}
     };
   },
   mounted: function mounted() {
-    this.getData();
+    this.getData(), this.getView();
+  },
+  created: function created() {
+    this.addView();
   },
   methods: {
     getData: function getData() {
@@ -2233,6 +2237,27 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error);
       });
+    },
+    getView: function getView() {
+      var _this2 = this;
+
+      this.axios.get("/api/view/".concat(this.$route.params.slug)).then(function (response) {
+        _this2.view = response.data.data.view;
+      });
+    },
+    addView: function addView() {
+      var _this3 = this;
+
+      setTimeout(function () {
+        var incView = _this3.view;
+        var viewOri = {
+          view: parseInt(incView) + 1
+        };
+
+        _this3.axios.post('/api/view/' + _this3.$route.params.slug, viewOri)["catch"](function (error) {
+          return console.log(error.data);
+        });
+      }, 1000);
     }
   },
   components: {
@@ -3804,7 +3829,7 @@ var render = function() {
       _c("main", { staticClass: "mt-5 px-10" }, [
         _c(
           "div",
-          { staticClass: "flex flex-col items-center max-w-full" },
+          { staticClass: "flex flex-col items-center" },
           [
             _c(
               "div",
@@ -3815,7 +3840,7 @@ var render = function() {
             _vm._l(_vm.blogs.data, function(blog) {
               return _c(
                 "div",
-                { key: blog.id, staticClass: "flex justify-center" },
+                { key: blog.id, staticClass: "flex justify-center w-11/12" },
                 [
                   _c(
                     "router-link",
@@ -3918,30 +3943,45 @@ var render = function() {
       _c("Navbar"),
       _vm._v(" "),
       _c("main", { staticClass: "mt-5 mb-10 px-10 h-screen" }, [
-        _c("div", { staticClass: "flex flex-col items-center mx-auto" }, [
-          _c(
-            "div",
-            { staticClass: "text-2xl font-extrabold underline text-blue-400" },
-            [_vm._v(_vm._s(_vm.blog.title))]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-sm font-light  italic text-dark" }, [
-            _vm._v(
-              "[" +
-                _vm._s(_vm.blog.user) +
-                " => " +
-                _vm._s(_vm.blog.created_at) +
-                "]"
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-center mx-auto md:mx-64" }, [
-            _c("div", {
-              staticClass: "mt-2 leading-loose tracking-widest  font-light",
-              domProps: { innerHTML: _vm._s(_vm.blog.description_2) }
-            })
-          ])
-        ])
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "text-2xl font-extrabold underline text-blue-400"
+              },
+              [_vm._v(_vm._s(_vm.blog.title))]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "text-sm mt-3  font-bold italic text-dark" },
+              [
+                _vm._v(
+                  "[" +
+                    _vm._s(_vm.blog.user) +
+                    " => " +
+                    _vm._s(_vm.blog.created_at) +
+                    ", views => " +
+                    _vm._s(_vm.blog.view) +
+                    "]"
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-center mx-auto md:mx-64" }, [
+              _c("div", {
+                staticClass: "mt-2 leading-loose tracking-widest  font-light",
+                domProps: { innerHTML: _vm._s(_vm.blog.description_2) }
+              })
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("Footer")
@@ -19450,7 +19490,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODUL
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]);
  // Vue Pagination
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js")); // import LaravelVuePagination from 'laravel-vue-tailwind-pagination';
+// Vue.use(LaravelVuePagination);
+
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"](_router__WEBPACK_IMPORTED_MODULE_4__["default"])
