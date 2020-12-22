@@ -15,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::middleware('admin')->group(function(){
     // Livewire
@@ -38,3 +35,6 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 require __DIR__.'/auth.php';
+
+// Vue JS
+Route::view('/{any?}', 'layouts.master_page')->where('any', '.*');

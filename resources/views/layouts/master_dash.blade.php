@@ -34,5 +34,4 @@
 </body>
     @include('includes.script_dash')
     @stack('after_script')
-
 </html>
