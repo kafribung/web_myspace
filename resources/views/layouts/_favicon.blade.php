@@ -1,0 +1,1 @@
+<link rel="shortcut icon" href="{{ asset('img_users/kafri.png') }}" type="image/x-icon">

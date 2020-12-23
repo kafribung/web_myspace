@@ -3,9 +3,10 @@
 
 <head>
     <!-- Master -->
+    @include('includes.css_dash')
+    @include('layouts._favicon')
     <title>{{ $title ?? config('app.name') }}</title>
     @livewireStyles
-    @include('includes.css_dash')
 </head>
 
 <body id="page-top">
