@@ -2153,6 +2153,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3837,74 +3843,96 @@ var render = function() {
               [_vm._v("My Blog")]
             ),
             _vm._v(" "),
-            _vm._l(_vm.blogs.data, function(blog) {
-              return _c(
-                "div",
-                { key: blog.id, staticClass: "flex justify-center w-11/12" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "bg-white  mb-10 p-5 rounded-lg shadow hover:shadow-lg transform transition-all hover:-translate-y-1 duration-200",
-                      attrs: { to: "/blog/show/" + blog.slug }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "font-semibold font-sans text-xl hover:underline"
-                        },
-                        [_vm._v(_vm._s(blog.title))]
-                      ),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "font-serif leading-loose my-5 font-light",
-                        domProps: { innerHTML: _vm._s(blog.description) }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "flex items-center justify-between" },
-                        [
-                          _c("div", { staticClass: "flex items-center" }, [
-                            _c("img", {
-                              staticClass: "w-10 h-10 rounded-full",
-                              attrs: {
-                                src: "img_users/kafri.png",
-                                alt: "Kafri",
-                                title: "Kafris"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "text-sm text-gray-600 ml-2" },
-                              [_vm._v(_vm._s(blog.user) + " | ")]
-                            ),
-                            _vm._v(" "),
+            _vm.blog
+              ? [
+                  _vm._l(_vm.blogs.data, function(blog) {
+                    return _c(
+                      "div",
+                      {
+                        key: blog.id,
+                        staticClass: "flex justify-center w-11/12"
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "bg-white  mb-10 p-5 rounded-lg shadow hover:shadow-lg transform transition-all hover:-translate-y-1 duration-200",
+                            attrs: { to: "/blog/show/" + blog.slug }
+                          },
+                          [
                             _c(
                               "div",
                               {
-                                staticClass: "text-sm italic text-gray-600 ml-2"
+                                staticClass:
+                                  "font-semibold font-sans text-xl hover:underline"
                               },
-                              [_vm._v(_vm._s(blog.created_at))]
+                              [_vm._v(_vm._s(blog.title))]
+                            ),
+                            _vm._v(" "),
+                            _c("div", {
+                              staticClass:
+                                "font-serif leading-loose my-5 font-light",
+                              domProps: { innerHTML: _vm._s(blog.description) }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "flex items-center justify-between"
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "flex items-center" },
+                                  [
+                                    _c("img", {
+                                      staticClass: "w-10 h-10 rounded-full",
+                                      attrs: {
+                                        src: "img_users/kafri.png",
+                                        alt: "Kafri",
+                                        title: "Kafris"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "text-sm text-gray-600 ml-2"
+                                      },
+                                      [_vm._v(_vm._s(blog.user) + " | ")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "text-sm italic text-gray-600 ml-2"
+                                      },
+                                      [_vm._v(_vm._s(blog.created_at))]
+                                    )
+                                  ]
+                                )
+                              ]
                             )
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            }),
-            _vm._v(" "),
-            _c("pagination", {
-              attrs: { data: _vm.blogs },
-              on: { "pagination-change-page": _vm.getData }
-            })
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("pagination", {
+                    attrs: { data: _vm.blogs },
+                    on: { "pagination-change-page": _vm.getData }
+                  })
+                ]
+              : [
+                  _c("div", { staticClass: "text-sm text-blue-300 my-2" }, [
+                    _vm._v("Data blog belum ada")
+                  ])
+                ]
           ],
           2
         )
