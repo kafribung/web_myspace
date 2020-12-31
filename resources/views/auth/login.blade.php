@@ -52,7 +52,6 @@
                         {{ __('Register') }}
                     </a>
                 @endif
-
                 <x-button class="ml-3">
                     {{ __('Login') }}
                 </x-button>

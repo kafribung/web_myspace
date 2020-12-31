@@ -11,9 +11,9 @@
                         <div class="font-serif leading-loose my-5 font-light" v-html="blog.description"></div>
                         <span class="flex items-center justify-between">
                             <div class="flex items-center">
-                                    <img class="w-10 h-10 rounded-full" src="img_users/kafri.png" alt="Kafri" title="Kafris">
-                                    <div class="text-sm text-gray-600 ml-2">{{ blog.user }} | </div>
-                                    <div class="text-sm italic text-gray-600 ml-2">{{ blog.created_at }}</div>
+                                <img class="w-10 h-10 rounded-full" src="img_users/kafri.png" alt="Kafri" title="Kafris">
+                                <div class="text-sm text-gray-600 ml-2">{{ blog.user }} | </div>
+                                <div class="text-sm italic text-gray-600 ml-2">{{ blog.created_at }}</div>
                             </div>
                         </span>
                     </router-link>
