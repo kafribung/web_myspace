@@ -2,7 +2,7 @@
     <div>
         <Navbar />
         <!-- Hero -->
-        <main class="mt-5 mb-10 px-10 h-screen">
+        <main class="mt-5 mb-10 px-10">
             <div class="flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl">
                 <div class="text-2xl font-extrabold underline text-blue-400">{{ blog.title }}</div>
                 <div class="text-sm mt-3  font-bold italic text-dark">[{{ blog.user }} => {{ blog.created_at }}, views => {{ blog.view }}]</div>
@@ -41,7 +41,9 @@ export default {
             .then((response) => {
                 this.blog = response.data.data
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                this.$router.push({name: 'Error'});
+            })
         },
         getView(){
             this.axios

@@ -2158,7 +2158,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2241,7 +2240,9 @@ __webpack_require__.r(__webpack_exports__);
       this.axios.get("/api/blog/".concat(this.$route.params.slug)).then(function (response) {
         _this.blog = response.data.data;
       })["catch"](function (error) {
-        return console.log(error);
+        _this.$router.push({
+          name: 'Error'
+        });
       });
     },
     getView: function getView() {
@@ -3781,7 +3782,7 @@ var render = function() {
             _vm._v("About Me")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex justify-center mx-auto md:mx-64" }, [
+          _c("div", { staticClass: "flex justify-center mx-auto md:mx-80" }, [
             _vm.about
               ? _c("div", {
                   staticClass:
@@ -3843,7 +3844,7 @@ var render = function() {
               [_vm._v("My Blog")]
             ),
             _vm._v(" "),
-            _vm.blog
+            _vm.blogs
               ? [
                   _vm._l(_vm.blogs.data, function(blog) {
                     return _c(
@@ -3970,7 +3971,7 @@ var render = function() {
     [
       _c("Navbar"),
       _vm._v(" "),
-      _c("main", { staticClass: "mt-5 mb-10 px-10 h-screen" }, [
+      _c("main", { staticClass: "mt-5 mb-10 px-10" }, [
         _c(
           "div",
           {
@@ -4227,7 +4228,7 @@ var render = function() {
               "a",
               {
                 staticClass: "text-3xl mr-5 hover:text-blue-400",
-                attrs: { href: "https://github.com/kafribung", target: "blank" }
+                attrs: { href: "https://shorturl.at/dkKLU", target: "blank" }
               },
               [_c("i", { staticClass: "fa fa-github" })]
             ),
@@ -4248,11 +4249,7 @@ var render = function() {
               "a",
               {
                 staticClass: "text-3xl mr-5 hover:text-blue-400",
-                attrs: {
-                  href:
-                    "https://id.linkedin.com/in/kafriansyah-kafriansyah-633359179",
-                  target: "blank"
-                }
+                attrs: { href: "https://shorturl.at/brBZ8", target: "blank" }
               },
               [_c("i", { staticClass: "fa fa-linkedin-square" })]
             )

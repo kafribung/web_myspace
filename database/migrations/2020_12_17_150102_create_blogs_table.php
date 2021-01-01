@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration
             $table->text('description');
             $table->string('slug');
             $table->integer('view')->default(0);
+            $table->boolean('active')->default(0);
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

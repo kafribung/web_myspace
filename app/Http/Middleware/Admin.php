@@ -23,6 +23,6 @@ class Admin
             if ($user->role == 1) {
                 return $next($request);
             } else return abort('403', 'You not admin');
-        } else return abort('403', 'You have login!');
+        } else return abort('404');
     }
 }

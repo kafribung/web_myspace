@@ -5,7 +5,7 @@
         <main class="mt-5 mb-10 px-10">
                 <div class="grid justify-items-center">
                     <div class="text-xl underline text-blue-400 mb-5">About Me</div>
-                    <div class="flex justify-center mx-auto md:mx-64" >
+                    <div class="flex justify-center mx-auto md:mx-80" >
                         <div v-if="about" v-html="about.description" class="mt-2  leading-loose font-light font-serif tracking-widest"></div>
                         <div v-else class="mt-2  leading-relaxed font-light font-serif tracking-widest">~ ~ ~</div>
                     </div>

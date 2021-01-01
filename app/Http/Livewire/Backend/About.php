@@ -10,6 +10,12 @@ class About extends Component
 {
     public $description, $aboutId;
 
+    // Open Modal
+    public function openModal()
+    {
+        $this->emit('show');
+    }
+
     public function store()
     {
         if (ModelsAbout::count() >= 1) {

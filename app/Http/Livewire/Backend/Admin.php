@@ -25,8 +25,8 @@ class Admin extends Component
         $data = $this->validate([
             'name' => 'required|string|max:20',
             'email' => 'required|email|max:20|unique:users,email,' . $this->userId,
-            'oldPassword' => 'required|string|min:3|max:8',
-            'newPassword' => 'required|string|min:3|max:8',
+            'oldPassword' => 'required|string|min:8',
+            'newPassword' => 'required|string|min:8',
         ]);
         $oldPassword    = $data['oldPassword'];
         $currentPassword= auth()->user()->password;
