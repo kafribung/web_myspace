@@ -11,7 +11,6 @@
 
         <form method="POST" action="{{ route('login') }}" novalidate>
             @csrf
-
             <!-- Email Address -->
             <div>
                 <x-label for="email" :value="__('Email')" />

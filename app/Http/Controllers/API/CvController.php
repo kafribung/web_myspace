@@ -9,6 +9,6 @@ class CvController extends Controller
 {
     public function __invoke()
     {
-        return response()->download(storage_path("app/public/cv/cv.pdf"));
+        return response()->download(storage_path("app/public/cv/kafriansyah_cv.pdf"));
     }
 }
