@@ -20,6 +20,15 @@ class Blog extends Component
         ]);
         session()->flash('msg', 'Blog active status');
     }
+
+    public function noActive($id)
+    {
+        \App\Models\Blog::findOrFail($id)->update([
+            'active' => 0
+        ]);
+        session()->flash('msg', 'Blog not active status');
+    }
+
     public function render()
     {
         $blogs = \App\Models\Blog::with('user')->latest()->get();

@@ -23,7 +23,11 @@
                         <div>
                             <a href="{{ route('blog.edit', $blog) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                             <button  wire:click="delete({{ $blog->id }})" id="delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                            <button  wire:click="active({{ $blog->id }})" id="delete" class="btn {{ $blog->active == 0 ? 'btn-info' : 'btn-dark' }}  btn-sm"><i class="fa {{ $blog->active == 0 ? 'fa-check' : 'fa-minus' }}"></i></button>
+                            @if ($blog->active == 0)
+                            <button  wire:click="active({{ $blog->id }})" id="delete" class="btn btn-info btn-sm"><i class="fa fa-check "></i></button>
+                            @else
+                            <button  wire:click="noActive({{ $blog->id }})" id="delete" class="btn btn-dark btn-sm"><i class="fa fa-minus"></i></button>
+                            @endif
                         </div>
                         <div>
                             <small>{{ $blog->user->name }}</small>
