@@ -47,6 +47,14 @@
                         <router-link :to="'/contact'" class="block md:mr-0 hover:text-blue-400">Contact</router-link>
                     </div>
                     <div class="">
+                        <div :class="hiddenThema ? 'flex': 'hidden'">
+                            <button  @click.prevent="setThema('dark')" class=" bg-gray-400 border focus:outline-none  rounded-md shadow-sm text-black text-sm py-1 px-2"><i class="fa fa-moon-o" aria-hidden="true"></i></button>
+                        </div>
+                        <div :class="hiddenThema ? 'hidden': 'flex'">
+                            <button  @click.prevent="setThema('light')" class="bg-gray-50 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2"><i class="fa fa-sun-o" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div class="">
                         <a href="api/donwload/cv" target="_blank" class=" bg-white  dark:bg-gray-400 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2 ml-2 hover:border-blue-400 hover:font-bold"><i class="fa fa-file text-blue-500" aria-hidden="true"></i> cv</a>
                     </div>
                 </div>

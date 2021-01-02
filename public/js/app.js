@@ -2043,6 +2043,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3774,6 +3782,52 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
+              _c("div", {}, [
+                _c("div", { class: _vm.hiddenThema ? "flex" : "hidden" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        " bg-gray-400 border focus:outline-none  rounded-md shadow-sm text-black text-sm py-1 px-2",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.setThema("dark")
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-moon-o",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { class: _vm.hiddenThema ? "hidden" : "flex" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-gray-50 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.setThema("light")
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-sun-o",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
               _vm._m(2)
             ]
           )
@@ -4068,7 +4122,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl dark:bg-gray-700  dark:text-gray-100"
+              "flex flex-col mx-auto items-center  px-10 bg-white rounded-lg py-10 max-w-7xl dark:bg-gray-700  dark:text-gray-100"
           },
           [
             _c(
