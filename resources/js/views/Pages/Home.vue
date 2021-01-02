@@ -3,7 +3,7 @@
         <Navbar />
         <!-- Hero -->
         <main class="mt-12 px-10 h-screen">
-            <div class="flex flex-col items-center w-full">
+            <div class="flex flex-col items-center w-full dark:text-gray-100">
                 <img class="rounded-full" width="200px" title="Kafri Bung" :src="'img_users/kafri.png'" alt="Error">
                 <div class="font-extrabold text-2xl mt-2">Kafriansyah</div>
                 <div class="flex justify-center  mt-1">

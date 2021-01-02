@@ -2035,11 +2035,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      toogle: false
+      toogle: false,
+      hiddenThema: true
     };
+  },
+  mounted: function mounted() {
+    document.querySelector('html').classList.add(localStorage.getItem('thema'));
   },
   methods: {
     showNavbar: function showNavbar() {
@@ -2049,6 +2061,18 @@ __webpack_require__.r(__webpack_exports__);
       this.axios.get('api/donwload/cv').then(function (response) {
         conslole.log('ok');
       });
+    },
+    setThema: function setThema(value) {
+      localStorage.setItem('thema', value);
+      var thema = document.querySelector('html').classList.add(localStorage.getItem('thema'));
+
+      if (value == 'dark') {
+        this.hiddenThema = !this.hiddenThema;
+        document.querySelector('html').classList.remove('light');
+      } else {
+        this.hiddenThema = !this.hiddenThema;
+        document.querySelector('html').classList.remove('dark');
+      }
     }
   }
 });
@@ -3483,7 +3507,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("footer", { staticClass: "bottom-0 mt-0" }, [
-    _c("div", { staticClass: "grid justify-items-center" }, [
+    _c("div", { staticClass: "grid justify-items-center dark:text-gray-100" }, [
       _c(
         "div",
         { staticClass: "font-light font-serif text-base tracking-tighter" },
@@ -3534,7 +3558,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "px-2 py-1 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none",
+                  "px-2 py-1 border rounded  text-black dark:bg-gray-100  border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none",
                 on: {
                   click: function($event) {
                     $event.preventDefault()
@@ -3576,70 +3600,120 @@ var render = function() {
             "div",
             { staticClass: "w-full hidden md:flex md:items-center md:w-auto" },
             [
-              _c("div", { staticClass: "md:flex text-sm list-none" }, [
-                _c(
-                  "li",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass:
-                          "mt-3 md:mt-0 block mr-0 md:mr-8  hover:text-blue-400",
-                        attrs: { to: "/" }
-                      },
-                      [_vm._v("Home")]
-                    )
-                  ],
-                  1
-                ),
+              _c(
+                "div",
+                { staticClass: "md:flex text-sm list-none dark:text-gray-100" },
+                [
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "mt-3 md:mt-0 block mr-0 md:mr-8  hover:text-blue-400",
+                          attrs: { to: "/" }
+                        },
+                        [_vm._v("Home")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "mt-3 md:mt-0 block mr-0 md:mr-8  hover:text-blue-400",
+                          attrs: { to: "/about" }
+                        },
+                        [_vm._v("About")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "mt-3 md:mt-0 block mr-0 md:mr-8  hover:text-blue-400",
+                          attrs: { to: { name: "Blog" } }
+                        },
+                        [_vm._v("Blog")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "mt-3 md:mt-0 block mr-0 md:mr-8 hover:text-blue-400",
+                          attrs: { to: "/contact" }
+                        },
+                        [_vm._v("Contact")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-3 md:mt-0" }, [
+                _c("div", { class: _vm.hiddenThema ? "flex" : "hidden" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        " bg-gray-400 border focus:outline-none  rounded-md shadow-sm text-black text-sm py-1 px-2",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.setThema("dark")
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-moon-o",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "li",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass:
-                          "mt-3 md:mt-0 block mr-0 md:mr-8  hover:text-blue-400",
-                        attrs: { to: "/about" }
-                      },
-                      [_vm._v("About")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass:
-                          "mt-3 md:mt-0 block mr-0 md:mr-8  hover:text-blue-400",
-                        attrs: { to: { name: "Blog" } }
-                      },
-                      [_vm._v("Blog")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass:
-                          "mt-3 md:mt-0 block mr-0 md:mr-8 hover:text-blue-400",
-                        attrs: { to: "/contact" }
-                      },
-                      [_vm._v("Contact")]
-                    )
-                  ],
-                  1
-                )
+                _c("div", { class: _vm.hiddenThema ? "hidden" : "flex" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-gray-50 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.setThema("light")
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-sun-o",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
+                ])
               ]),
               _vm._v(" "),
               _vm._m(1)
@@ -3656,7 +3730,9 @@ var render = function() {
             [
               _c(
                 "div",
-                { staticClass: "flex flex-grow text-sm mt-3" },
+                {
+                  staticClass: "flex flex-grow text-sm mt-3 dark:text-gray-100"
+                },
                 [
                   _c(
                     "router-link",
@@ -3712,7 +3788,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex" }, [
-      _c("div", { staticClass: "text-2xl uppercase" }, [
+      _c("div", { staticClass: "text-2xl uppercase dark:text-gray-100" }, [
         _vm._v('"Nomads Dev_";')
       ])
     ])
@@ -3726,10 +3802,16 @@ var staticRenderFns = [
         "a",
         {
           staticClass:
-            "bg-white border border-black rounded-md shadow-sm text-black text-sm py-1 px-2 hover:border-blue-400 hover:font-bold",
+            " bg-white dark:bg-gray-400 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2 ml-2 hover:border-blue-400 hover:font-bold",
           attrs: { href: "api/donwload/cv", target: "_blank" }
         },
-        [_vm._v("Get Cv")]
+        [
+          _c("i", {
+            staticClass: "fa fa-file text-blue-500",
+            attrs: { "aria-hidden": "true" }
+          }),
+          _vm._v(" cv")
+        ]
       )
     ])
   },
@@ -3742,10 +3824,16 @@ var staticRenderFns = [
         "a",
         {
           staticClass:
-            "py-1 px-4 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none",
+            " bg-white  dark:bg-gray-400 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2 ml-2 hover:border-blue-400 hover:font-bold",
           attrs: { href: "api/donwload/cv", target: "_blank" }
         },
-        [_vm._v("Get Cv")]
+        [
+          _c("i", {
+            staticClass: "fa fa-file text-blue-500",
+            attrs: { "aria-hidden": "true" }
+          }),
+          _vm._v(" cv")
+        ]
       )
     ])
   }
@@ -3777,28 +3865,32 @@ var render = function() {
       _c("Navbar"),
       _vm._v(" "),
       _c("main", { staticClass: "mt-5 mb-10 px-10" }, [
-        _c("div", { staticClass: "grid justify-items-center" }, [
-          _c("div", { staticClass: "text-xl underline text-blue-400 mb-5" }, [
-            _vm._v("About Me")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-center mx-auto md:mx-80" }, [
-            _vm.about
-              ? _c("div", {
-                  staticClass:
-                    "mt-2  leading-loose font-light font-serif tracking-widest",
-                  domProps: { innerHTML: _vm._s(_vm.about.description) }
-                })
-              : _c(
-                  "div",
-                  {
+        _c(
+          "div",
+          { staticClass: "grid justify-items-center dark:text-gray-100" },
+          [
+            _c("div", { staticClass: "text-xl underline text-blue-400 mb-5" }, [
+              _vm._v("About Me")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-center mx-auto md:mx-80" }, [
+              _vm.about
+                ? _c("div", {
                     staticClass:
-                      "mt-2  leading-relaxed font-light font-serif tracking-widest"
-                  },
-                  [_vm._v("~ ~ ~")]
-                )
-          ])
-        ])
+                      "mt-2  leading-loose font-light font-serif tracking-widest",
+                    domProps: { innerHTML: _vm._s(_vm.about.description) }
+                  })
+                : _c(
+                    "div",
+                    {
+                      staticClass:
+                        "mt-2  leading-relaxed font-light font-serif tracking-widest"
+                    },
+                    [_vm._v("~ ~ ~")]
+                  )
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("Footer")
@@ -3836,7 +3928,7 @@ var render = function() {
       _c("main", { staticClass: "mt-5 px-10" }, [
         _c(
           "div",
-          { staticClass: "flex flex-col items-center" },
+          { staticClass: "flex flex-col items-center dark:text-gray-100" },
           [
             _c(
               "div",
@@ -3858,7 +3950,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass:
-                              "bg-white  mb-10 p-5 rounded-lg shadow hover:shadow-lg transform transition-all hover:-translate-y-1 duration-200",
+                              "bg-white dark:bg-gray-700  dark:text-gray-100  mb-10 p-5 rounded-lg shadow hover:shadow-lg transform transition-all hover:-translate-y-1 duration-200",
                             attrs: { to: "/blog/show/" + blog.slug }
                           },
                           [
@@ -3900,7 +3992,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "text-sm text-gray-600 ml-2"
+                                          "text-sm text-gray-600 dark:text-gray-300 ml-2"
                                       },
                                       [_vm._v(_vm._s(blog.user) + " | ")]
                                     ),
@@ -3909,7 +4001,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "text-sm italic text-gray-600 ml-2"
+                                          "text-sm italic text-gray-600 dark:text-gray-300 ml-2"
                                       },
                                       [_vm._v(_vm._s(blog.created_at))]
                                     )
@@ -3976,7 +4068,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl"
+              "flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl dark:text-gray-100"
           },
           [
             _c(
@@ -4046,7 +4138,7 @@ var render = function() {
       _c("Navbar"),
       _vm._v(" "),
       _c("main", { staticClass: "mt-5 px-10 h-screen" }, [
-        _c("div", { staticClass: "flex flex-col w-full" }, [
+        _c("div", { staticClass: "flex flex-col w-full dark:text-gray-100" }, [
           _c(
             "div",
             {
@@ -4129,7 +4221,7 @@ var render = function() {
       _c("div", { staticClass: "flex justify-center items-center h-screen" }, [
         _c(
           "div",
-          { staticClass: "max-w-xl" },
+          { staticClass: "max-w-xl dark:text-gray-100" },
           [
             _c("div", { staticClass: "text-xl font-bold text-blue-400 mb-5" }, [
               _vm._v("$4.0.4 Not Found")
@@ -4178,83 +4270,89 @@ var render = function() {
       _c("Navbar"),
       _vm._v(" "),
       _c("main", { staticClass: "mt-12 px-10 h-screen" }, [
-        _c("div", { staticClass: "flex flex-col items-center w-full" }, [
-          _c("img", {
-            staticClass: "rounded-full",
-            attrs: {
-              width: "200px",
-              title: "Kafri Bung",
-              src: "img_users/kafri.png",
-              alt: "Error"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "font-extrabold text-2xl mt-2" }, [
-            _vm._v("Kafriansyah")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-center  mt-1" }, [
-            _c(
-              "div",
-              { staticClass: "font-light font-serif text-xl mx-auto" },
-              [
-                _vm._v(
-                  "He/Him. 21  y/o Web Developer,  Traveling and Foodies . More about me on "
-                ),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "text-blue-400 hover:font-semibold",
-                    attrs: { to: "/about" }
-                  },
-                  [_vm._v("Now")]
-                ),
-                _vm._v(". My thought visible on "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "text-blue-400 hover:font-semibold",
-                    attrs: { to: "/blog" }
-                  },
-                  [_vm._v("Blogs")]
-                )
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-5" }, [
-            _c(
-              "a",
-              {
-                staticClass: "text-3xl mr-5 hover:text-blue-400",
-                attrs: { href: "https://shorturl.at/dkKLU", target: "blank" }
-              },
-              [_c("i", { staticClass: "fa fa-github" })]
-            ),
+        _c(
+          "div",
+          {
+            staticClass: "flex flex-col items-center w-full dark:text-gray-100"
+          },
+          [
+            _c("img", {
+              staticClass: "rounded-full",
+              attrs: {
+                width: "200px",
+                title: "Kafri Bung",
+                src: "img_users/kafri.png",
+                alt: "Error"
+              }
+            }),
             _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "text-3xl mr-5 hover:text-blue-400",
-                attrs: {
-                  href: "https://www.instagram.com/kafri_bung/",
-                  target: "blank"
-                }
-              },
-              [_c("i", { staticClass: "fa fa-instagram" })]
-            ),
+            _c("div", { staticClass: "font-extrabold text-2xl mt-2" }, [
+              _vm._v("Kafriansyah")
+            ]),
             _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "text-3xl mr-5 hover:text-blue-400",
-                attrs: { href: "https://shorturl.at/brBZ8", target: "blank" }
-              },
-              [_c("i", { staticClass: "fa fa-linkedin-square" })]
-            )
-          ])
-        ])
+            _c("div", { staticClass: "flex justify-center  mt-1" }, [
+              _c(
+                "div",
+                { staticClass: "font-light font-serif text-xl mx-auto" },
+                [
+                  _vm._v(
+                    "He/Him. 21  y/o Web Developer,  Traveling and Foodies . More about me on "
+                  ),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "text-blue-400 hover:font-semibold",
+                      attrs: { to: "/about" }
+                    },
+                    [_vm._v("Now")]
+                  ),
+                  _vm._v(". My thought visible on "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "text-blue-400 hover:font-semibold",
+                      attrs: { to: "/blog" }
+                    },
+                    [_vm._v("Blogs")]
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-5" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "text-3xl mr-5 hover:text-blue-400",
+                  attrs: { href: "https://shorturl.at/dkKLU", target: "blank" }
+                },
+                [_c("i", { staticClass: "fa fa-github" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "text-3xl mr-5 hover:text-blue-400",
+                  attrs: {
+                    href: "https://www.instagram.com/kafri_bung/",
+                    target: "blank"
+                  }
+                },
+                [_c("i", { staticClass: "fa fa-instagram" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "text-3xl mr-5 hover:text-blue-400",
+                  attrs: { href: "https://shorturl.at/brBZ8", target: "blank" }
+                },
+                [_c("i", { staticClass: "fa fa-linkedin-square" })]
+              )
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("Footer")

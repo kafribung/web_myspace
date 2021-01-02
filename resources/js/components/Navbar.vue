@@ -4,15 +4,15 @@
         <header class="py-5 px-10">
             <nav  class="flex justify-between flex-wrap text-black text-lg font-semibold">
                 <div class="flex">
-                    <div class="text-2xl uppercase">"Nomads Dev_";</div>
+                    <div class="text-2xl uppercase dark:text-gray-100">"Nomads Dev_";</div>
                 </div>
                 <div class="block md:hidden">
-                    <button @click.prevent="showNavbar" class="px-2 py-1 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none">
+                    <button @click.prevent="showNavbar" class="px-2 py-1 border rounded  text-black dark:bg-gray-100  border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none">
                         <svg class="w-5 h-5 text-black" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"> <path :class="toogle ? 'hidden': 'block'"  d="M4 6h16M4 12h16m-7 6h7"></path> <path  :class="toogle ? 'block': 'hidden'" d="M6 18L18 6M6 6l12 12"></path> </svg>
                     </button>
                 </div>
                 <div class="w-full hidden md:flex md:items-center md:w-auto">
-                    <div class="md:flex text-sm list-none">
+                    <div class="md:flex text-sm list-none dark:text-gray-100">
                         <li>
                             <router-link :to="'/'" class="mt-3 md:mt-0 block mr-0 md:mr-8  hover:text-blue-400">Home</router-link>
                         </li>
@@ -27,19 +27,27 @@
                         </li>
                     </div>
                     <div class="mt-3 md:mt-0">
-                        <a href="api/donwload/cv" target="_blank" class="bg-white border border-black rounded-md shadow-sm text-black text-sm py-1 px-2 hover:border-blue-400 hover:font-bold">Get Cv</a>
+                        <div :class="hiddenThema ? 'flex': 'hidden'">
+                            <button  @click.prevent="setThema('dark')" class=" bg-gray-400 border focus:outline-none  rounded-md shadow-sm text-black text-sm py-1 px-2"><i class="fa fa-moon-o" aria-hidden="true"></i></button>
+                        </div>
+                        <div :class="hiddenThema ? 'hidden': 'flex'">
+                            <button  @click.prevent="setThema('light')" class="bg-gray-50 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2"><i class="fa fa-sun-o" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div class="mt-3 md:mt-0">
+                        <a href="api/donwload/cv" target="_blank" class=" bg-white dark:bg-gray-400 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2 ml-2 hover:border-blue-400 hover:font-bold"><i class="fa fa-file text-blue-500" aria-hidden="true"></i> cv</a>
                     </div>
                 </div>
                 <!-- Navbar Mobile -->
                 <div :class="toogle ? 'flex': 'hidden'" class="w-full flex flex-grow  md:hidden justify-center items-center mt-5">
-                    <div class="flex flex-grow text-sm mt-3">
+                    <div class="flex flex-grow text-sm mt-3 dark:text-gray-100">
                         <router-link :to="'/'" class="block mr-2 md:mr-0 hover:text-blue-400 focus:underline">Home</router-link>
                         <router-link :to="'/about'" class="block  mr-2 md:mr-0 hover:text-blue-400">About</router-link>
                         <router-link :to="{name:'Blog'}" class="block mr-2 md:mr-0 hover:text-blue-400">Blog</router-link>
                         <router-link :to="'/contact'" class="block md:mr-0 hover:text-blue-400">Contact</router-link>
                     </div>
                     <div class="">
-                        <a href="api/donwload/cv" target="_blank" class="py-1 px-4 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none">Get Cv</a>
+                        <a href="api/donwload/cv" target="_blank" class=" bg-white  dark:bg-gray-400 border focus:outline-none rounded-md shadow-sm text-black text-sm py-1 px-2 ml-2 hover:border-blue-400 hover:font-bold"><i class="fa fa-file text-blue-500" aria-hidden="true"></i> cv</a>
                     </div>
                 </div>
             </nav>
@@ -53,7 +61,11 @@ export default {
     data() {
         return {
         toogle: false,
+        hiddenThema : true
         }
+    },
+    mounted() {
+        document.querySelector('html').classList.add(localStorage.getItem('thema'))
     },
     methods: {
         showNavbar() {
@@ -65,7 +77,18 @@ export default {
             .then((response) => {
                 conslole.log('ok');
             })
-        }
+        },
+        setThema(value){
+            localStorage.setItem('thema', value)
+            const thema = document.querySelector('html').classList.add(localStorage.getItem('thema'))
+            if (value == 'dark') {
+                this.hiddenThema = !this.hiddenThema;
+                document.querySelector('html').classList.remove('light')
+            } else {
+                this.hiddenThema = !this.hiddenThema;
+                document.querySelector('html').classList.remove('dark')
+            }
+        },
     },
 };
 </script>

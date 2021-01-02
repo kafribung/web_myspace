@@ -3,7 +3,7 @@
         <Navbar />
         <!-- Hero -->
         <main class="mt-5 mb-10 px-10">
-                <div class="grid justify-items-center">
+                <div class="grid justify-items-center dark:text-gray-100">
                     <div class="text-xl underline text-blue-400 mb-5">About Me</div>
                     <div class="flex justify-center mx-auto md:mx-80" >
                         <div v-if="about" v-html="about.description" class="mt-2  leading-loose font-light font-serif tracking-widest"></div>

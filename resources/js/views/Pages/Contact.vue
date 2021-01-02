@@ -3,7 +3,7 @@
         <Navbar />
         <!-- Hero -->
         <main class="mt-5 px-10 h-screen">
-            <div class="flex flex-col w-full">
+            <div class="flex flex-col w-full dark:text-gray-100">
                 <div class="flex justify-center text-xl underline text-blue-400">My Contact</div>
                 <div class="flex justify-center">
                     <div class="mt-3 mb-10 p-5">
