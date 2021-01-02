@@ -3,11 +3,11 @@
         <Navbar />
         <!-- Hero -->
         <main class="mt-5 mb-10 px-10">
-            <div class="flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl dark:text-gray-100">
+            <div class="flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl dark:bg-gray-700  dark:text-gray-100">
                 <div class="text-2xl font-extrabold underline text-blue-400">{{ blog.title }}</div>
                 <div class="text-sm mt-3  font-bold italic text-dark">[{{ blog.user }} => {{ blog.created_at }}, views => {{ blog.view }}]</div>
                 <div class="flex justify-center mx-auto md:mx-64">
-                    <div class="mt-2 leading-loose tracking-widest  font-light" v-html="blog.description_2"></div>
+                    <div class="mt-10 leading-loose tracking-widest  font-light" v-html="blog.description_2"></div>
                 </div>
             </div>
         </main>

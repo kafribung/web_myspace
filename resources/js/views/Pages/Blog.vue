@@ -3,7 +3,7 @@
         <Navbar />
         <!-- Hero -->
         <main class="mt-5 px-10">
-            <div class="flex flex-col items-center dark:text-gray-100">
+            <div class="flex flex-col items-center ">
                 <div class="text-xl  underline text-blue-400 mb-5">My Blog</div>
                 <template v-if="blogs">
                     <div  class="flex justify-center w-11/12" v-for="blog in blogs.data" :key="blog.id">

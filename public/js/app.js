@@ -3928,7 +3928,7 @@ var render = function() {
       _c("main", { staticClass: "mt-5 px-10" }, [
         _c(
           "div",
-          { staticClass: "flex flex-col items-center dark:text-gray-100" },
+          { staticClass: "flex flex-col items-center " },
           [
             _c(
               "div",
@@ -4068,7 +4068,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl dark:text-gray-100"
+              "flex flex-col items-center mx-auto bg-white rounded-lg py-10 max-w-7xl dark:bg-gray-700  dark:text-gray-100"
           },
           [
             _c(
@@ -4097,7 +4097,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "flex justify-center mx-auto md:mx-64" }, [
               _c("div", {
-                staticClass: "mt-2 leading-loose tracking-widest  font-light",
+                staticClass: "mt-10 leading-loose tracking-widest  font-light",
                 domProps: { innerHTML: _vm._s(_vm.blog.description_2) }
               })
             ])
