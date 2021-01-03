@@ -19,6 +19,9 @@ class ViewController extends Controller
     }
     public function store(Request $request, Blog $blog)
     {
+        $request->validate([
+            'view' => ['required', 'integer']
+        ]);
         try {
             $blog->update([
                 'view' => $request->view,

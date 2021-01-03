@@ -15,6 +15,7 @@
             <div class="card mb-4 py-3 border-left-success">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">{{ $blog->title }}</h6>
+                    <small class="d-block font-weight-bold text-info">{{ $blog->view }} Orang</small>
                 </div>
                 <div class="card-body">
                     <p>{!! Str::limit($blog->description, 30) !!}</p>

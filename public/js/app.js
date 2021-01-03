@@ -2256,15 +2256,13 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       blog: {},
-      view: {}
+      view: ''
     };
   },
   mounted: function mounted() {
-    this.getData(), this.getView();
+    this.getData(), this.getView(), this.addView();
   },
-  created: function created() {
-    this.addView();
-  },
+  created: function created() {},
   methods: {
     getData: function getData() {
       var _this = this;
@@ -2290,10 +2288,10 @@ __webpack_require__.r(__webpack_exports__);
       setTimeout(function () {
         var incView = _this3.view;
         var viewOri = {
-          view: parseInt(incView) + 1
+          "view": parseInt(_this3.view) + 1
         };
 
-        _this3.axios.post('/api/view/' + _this3.$route.params.slug, viewOri)["catch"](function (error) {
+        _this3.axios.post("/api/view/".concat(_this3.$route.params.slug), viewOri)["catch"](function (error) {
           return console.log(error.data);
         });
       }, 1000);

@@ -23,16 +23,15 @@ export default {
     data() {
         return {
             blog : {},
-            view : {},
+            view : '',
         }
     },
     mounted() {
         this.getData(),
-
-        this.getView()
+        this.getView(),
+        this.addView()
     },
     created() {
-        this.addView()
     },
     methods: {
         getData(){
@@ -56,10 +55,10 @@ export default {
             setTimeout(() => {
                 var incView = this.view;
                 var viewOri = {
-                    view : parseInt(incView) + 1
+                    "view" : (parseInt(this.view) + 1)
                 };
                 this.axios
-                .post('/api/view/' + this.$route.params.slug, viewOri)
+                .post(`/api/view/${this.$route.params.slug}`, viewOri)
                 .catch(error => console.log(error.data))
             }, 1000);
             
