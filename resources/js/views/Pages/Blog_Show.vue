@@ -28,10 +28,10 @@ export default {
     },
     mounted() {
         this.getData(),
-        this.getView(),
-        this.addView()
+        this.getView()
     },
     created() {
+        this.addView()
     },
     methods: {
         getData(){
@@ -53,14 +53,14 @@ export default {
         },
         addView(){
             setTimeout(() => {
-                var incView = this.view;
-                var viewOri = {
+                const incView = this.view;
+                const viewOri = {
                     "view" : (parseInt(this.view) + 1)
                 };
                 this.axios
                 .post(`/api/view/${this.$route.params.slug}`, viewOri)
                 .catch(error => console.log(error.data))
-            }, 1000);
+            }, 5000);
             
         }
     },
