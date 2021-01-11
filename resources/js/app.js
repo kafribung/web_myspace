@@ -12,8 +12,12 @@ import routes from './router'
 
 // Vue Pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
-// import LaravelVuePagination from 'laravel-vue-tailwind-pagination';
-// Vue.use(LaravelVuePagination);
+
+// Vue Analytics
+import VueAnalytics from 'vue-analytics'
+Vue.use(VueAnalytics, {
+    id: 'UA-166303075-1'
+})
 
 const app = new Vue({
     el: '#app',
