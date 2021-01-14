@@ -11,7 +11,7 @@ class BlogController extends Controller
     // READ
     public function index()
     {
-        $blogs = Blog::with('user')->where('active', 1)->paginate(5);
+        $blogs = Blog::with('user')->where('active', 1)->latest()->paginate(5);
         return BlogResource::collection($blogs);
     }
 
