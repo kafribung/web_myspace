@@ -33,7 +33,7 @@ class Blog extends Component
     {
         $blogs = \App\Models\Blog::with('user')->latest()->get();
         return view('livewire.backend.blog.blog', compact('blogs')) 
-        ->extends('layouts.master_dash', ['title' => 'BLogs | Kafri Bung Space'])
+        ->extends('layouts.master_dash', ['title' => 'Blogs | Kafri Bung Space'])
         ->section('content');
     }
 }

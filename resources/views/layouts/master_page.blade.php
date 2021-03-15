@@ -7,6 +7,11 @@
     <title>Kafri Bung Space</title>
     <!-- Favicon  -->
     @include('layouts._favicon')
+    <meta name="author" content="@kafribung">
+	<meta name="description" content="My Space Kafriansyah UIN Alauddin Makassar">
+	<meta property="og:title" content="Kafriansyah">
+    <meta property="og:description" content="My Space Kafriansyah UIN Alauddin Makassar">
+    <meta property="og:image" content="{{ asset('img_users/kafri.png')}}">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Quicksand:wght@600&display=swap" rel="stylesheet">
