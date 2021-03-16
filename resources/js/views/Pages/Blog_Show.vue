@@ -70,7 +70,6 @@ export default {
                 .post(`/api/view/${this.$route.params.slug}`, viewOri)
                 .catch(error => console.log(error.data))
             }, 5000);
-            
         }
     },
     components: {
