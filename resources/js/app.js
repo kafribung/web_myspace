@@ -20,6 +20,10 @@ Vue.use(VueAnalytics, {
     routes
 })
 
+// Vue Head
+import VueHead from 'vue-head'
+Vue.use(VueHead)
+
 const app = new Vue({
     el: '#app',
     router: new VueRouter(routes),

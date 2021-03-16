@@ -26,6 +26,7 @@
         "vue": "^2.6.12",
         "vue-analytics": "^5.22.1",
         "vue-axios": "^3.2.2",
+        "vue-head": "^2.2.0",
         "vue-router": "^3.4.9"
     }
 }

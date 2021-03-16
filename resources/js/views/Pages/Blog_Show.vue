@@ -26,6 +26,15 @@ export default {
             view : '',
         }
     },
+    head: {
+        meta: function(){
+            return  [
+                { property:'og:title', content: this.blog.title },
+                { property:'og:description', content: 'Dari Kafri, untuk anda :)' },
+                { property:'og:image', content: 'https://kafriansyah.com/img_users/kafri.png' }
+            ]
+        } 
+    },
     mounted() {
         this.getData(),
         this.getView()
