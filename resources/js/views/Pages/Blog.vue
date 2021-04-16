@@ -7,7 +7,7 @@
                 <div class="text-xl  underline text-blue-400 mb-5">My Blog</div>
                 <template v-if="blogs">
                     <div  class="flex justify-center w-11/12" v-for="blog in blogs.data" :key="blog.id">
-                    <router-link :to="'/blog/show/' + blog.slug" class="bg-white dark:bg-gray-700  dark:text-gray-100  mb-10 p-5 rounded-lg shadow hover:shadow-lg transform transition-all hover:-translate-y-1 duration-200">
+                    <router-link :to="'/blog/' + blog.slug" class="bg-white dark:bg-gray-700  dark:text-gray-100  mb-10 p-5 rounded-lg shadow hover:shadow-lg transform transition-all hover:-translate-y-1 duration-200">
                         <div class="font-semibold font-sans text-xl hover:underline">{{ blog.title }}</div>
                         <div class="font-serif leading-loose my-5 font-light" v-html="blog.description"></div>
                         <span class="flex items-center justify-between">

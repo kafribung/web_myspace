@@ -25,7 +25,7 @@ export default {
             component: Blog,
         },
         {
-            path: '/blog/show/:slug',
+            path: '/blog/:slug',
             name: 'BlogShow',
             component: BlogShow
         },

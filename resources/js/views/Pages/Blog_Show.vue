@@ -30,8 +30,8 @@ export default {
         meta: function(){
             return  [
                 { property:'og:title', content: this.blog.title },
-                { property:'og:description', content: 'Dari Kafri, untuk anda :)' },
-                { property:'og:image', content: 'https://kafriansyah.com/img_users/kafri.png' }
+                { property:'og:description', content: 'Banyak jalan menuju Roma :)' },
+                { property:'og:image', content: '/img_users/kafri.png' }
             ]
         } 
     },
