@@ -10,7 +10,6 @@
                         <a :href="'mailto:kafribung07@gmail.com'" target="_blank" class="font-light block text-lg hover:underline hover:font-italic">kafribung07@gmail.com</a>
                         <a :href="'mailto:60900117001@uin-alauddin.ac.id'" target="_blank" class="font-light text-lg hover:underline hover:font-italic">60900117001@uin-alauddin.ac.id</a>
                         <div class="subpixel-antialiased">Mamuju Sulawesi Barat, Kaluku 91561 Indonesia</div>
-                        <div class="font-serif leading-loose my-5 font-light">Menjadi programmer sebab pernah dihianati :v</div>
                     </div>
                 </div>
             </div>
